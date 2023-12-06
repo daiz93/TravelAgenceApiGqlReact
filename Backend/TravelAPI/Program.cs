@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using TravelAPI.Graphql;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var AllowSpecificOrigins = "_allowSpecificOrigins";
 // Add services to the container.
 builder.Services.AddDbContextFactory<TDbContext>(options => 
 {
@@ -38,6 +38,18 @@ builder.Services
     .AddSorting()
     
     ;
+
+    // cors
+builder.Services.AddCors(options => 
+{
+    options.AddPolicy(name: AllowSpecificOrigins,
+        policy => 
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 
 builder.Services.AddControllers();
