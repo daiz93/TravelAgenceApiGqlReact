@@ -1,0 +1,35 @@
+query GetDossiers{
+  dossiers {
+    dossierId
+    dateArrivee
+    dureeSejourJours
+    numeroVol
+    lieu
+    clientId
+    typeVoyageId
+    actif
+    client{
+      nom
+      prenom
+      numeroTelephone
+      email
+      nationalite
+      actif
+    }
+
+    typeVoyage{
+      libelle
+    }
+
+    hotel {
+      nom
+      nombreEtoiles
+      pays
+      ville
+      adresse
+      description
+      prix
+     
+    }
+  }
+}

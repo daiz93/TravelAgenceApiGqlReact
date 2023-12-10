@@ -58,6 +58,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseCors(AllowSpecificOrigins);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -85,7 +86,7 @@ try
 catch(Exception ex)
 {
     var logger = app.Services.GetRequiredService<ILogger<Program>>();
-    logger.LogError(ex, "La migration n'a pas pu être éffectuée. Aucune base de données disponible. Veuillez la créé manuellment.");
+    logger.LogError(ex, "La migration n'a pas pu être éffectuée. Aucune base de données disponible. Veuillez la créé manuellement.");
 } 
 
 app.Run();
