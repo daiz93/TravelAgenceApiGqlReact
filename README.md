@@ -16,22 +16,35 @@ Allant plus loin que l'option 1. Vous aurez le projet API et le dossier GraphQL 
 
 C'est l'option souhaité. Chaque équipe aura un accès indépendant à ses propres projets API mais partagera le noyau et l'infrastructure. C'est bien pour les grands projets, mais la mise en place prendra du temps en raison de sa complexité. Chaque projet API aura alors son propre lien GraphQL.
 
+Un exemple est ici : https://github.com/daiz93/detailVoyage
+
 **Option 4 : Une solution pour chaque équipe**
 
 C'est l'option la plus complexe et sera difficile à mettre en place. Chaque équipe aura sa propre solution avec son propre API et, si nécessaire, ses projets de noyau et d'infrastructure (ceux-ci peuvent même être partagés entre les solutions mais c'est difficile à mettre en place). Les équipes partageront une base de données commune mais auront un contrôle total sur l'architecture de leurs projets.
 
 
-# Solution Implémenté dans le présent repositoire :  Option 1 
+
+## Architecture : Option 1 
 
 Vous trouvez donc un dossier Backend (Cotenant une API REST ASP .NET CORE et le dossier GraphQL) et un dossier Frontend (contenant une application react)
 
-## Exécution :  Option 1, clone
+## Technologies Utilisées
+- **Langages de Programmation:** ASP .NET CORE, Graphql, JS
+- **Frameworks:** Entityfromaworkcore 7
+- **Outils:** HotChocolate
+
+## Installation :  Option 1, clone
 
 
 
 
-## Exécution :  Option 2, Docker
+## Installation :  Option 2, Docker
 
 
 
-## Exemple
+## Utilisation
+
+
+
+## Auteur
+Desmond KPOHIZOUN
