@@ -25,13 +25,13 @@ C'est l'option la plus complexe et sera difficile à mettre en place. Chaque éq
 
 Vous trouvez donc un dossier Backend (Cotenant une API REST ASP .NET CORE et le dossier GraphQL) et un dossier Frontend (contenant une application react)
 
-# Exécution :  Option 1, clone
+## Exécution :  Option 1, clone
 
 
 
 
-# Exécution :  Option 2, Docker
+## Exécution :  Option 2, Docker
 
 
 
-# Exemple
+## Exemple
