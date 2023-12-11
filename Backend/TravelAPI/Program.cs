@@ -57,7 +57,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddMvc(option => option.EnableEndpointRouting = false);
+builder.Services.AddRouting();
 var app = builder.Build();
+
+
 app.UseCors(AllowSpecificOrigins);
 
 // Configure the HTTP request pipeline.
@@ -66,6 +71,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapFallbackToController("Index", "Website");
+});
 
 app.UseHttpsRedirection();
 
@@ -80,7 +90,7 @@ try
 {
     var scope = app.Services.CreateScope();
     var context = scope.ServiceProvider.GetRequiredService<TDbContext>();
-    context.Database.EnsureCreated();
+    //context.Database.EnsureCreated();
     context.Database.Migrate();
 }
 catch(Exception ex)
