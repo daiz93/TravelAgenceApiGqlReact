@@ -16,4 +16,4 @@ RUN dotnet publish "Backend/TravelManagementExemple.sln" -c Release -o out
 # build a runtime image
 FROM mcr.microsoft.com/dotnet/sdk:7.0
 COPY --from=build-env /app/out .
-ENTRYPOINT [ "dotnet", "API.dll" ]
+ENTRYPOINT [ "dotnet", "TravelAPI.dll" ]
