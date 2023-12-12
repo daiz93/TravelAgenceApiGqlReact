@@ -36,11 +36,16 @@ Vous trouvez donc un dossier Backend (Cotenant une API REST ASP .NET CORE et le 
 ## Installation :  Option 1, clone
 
 
+1- Clenez le repositoire, et ouvrir le dossier avec Visual sutio code
+2- Dans le terminale, rendez-vous dans Backend executez la commande '''dotnet restore'''
+3- Dans Backend>TravelAPI  executer le commande '''dotnet watch run'''
+4- Dans Fronten>Travelwebagency executez la commande yarn
+5- Lancez le front end en executant yarn run strart
 
 
 ## Installation :  Option 2, Docker
 
-
+Commande docker run --rm -it -p 8080:80 96119221/travelmanagementapp
 
 ## Utilisation
 
