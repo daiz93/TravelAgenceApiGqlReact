@@ -28,7 +28,7 @@ namespace Infrastructure.DTOs
 
         public Client? Client { get;  set; }
         public TypeVoyage? TypeVoyage { get;  set; }
-        public Hotel Hotel { get; set; }
+        public Hotel? Hotel { get; set; }
     }
 
 

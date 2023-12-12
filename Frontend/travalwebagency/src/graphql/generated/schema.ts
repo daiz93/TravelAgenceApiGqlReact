@@ -67,6 +67,18 @@ export type ClientDtoFilterInput = {
   prenom?: InputMaybe<StringOperationFilterInput>;
 };
 
+export type ClientDtoSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  adresse?: InputMaybe<SortEnumType>;
+  clientId?: InputMaybe<SortEnumType>;
+  dateDeNaissance?: InputMaybe<SortEnumType>;
+  email?: InputMaybe<SortEnumType>;
+  nationalite?: InputMaybe<SortEnumType>;
+  nom?: InputMaybe<SortEnumType>;
+  numeroTelephone?: InputMaybe<SortEnumType>;
+  prenom?: InputMaybe<SortEnumType>;
+};
+
 export type ClientFilterInput = {
   actif?: InputMaybe<BooleanOperationFilterInput>;
   adresse?: InputMaybe<StringOperationFilterInput>;
@@ -80,6 +92,18 @@ export type ClientFilterInput = {
   numeroTelephone?: InputMaybe<StringOperationFilterInput>;
   or?: InputMaybe<Array<ClientFilterInput>>;
   prenom?: InputMaybe<StringOperationFilterInput>;
+};
+
+export type ClientSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  adresse?: InputMaybe<SortEnumType>;
+  clientId?: InputMaybe<SortEnumType>;
+  dateDeNaissance?: InputMaybe<SortEnumType>;
+  email?: InputMaybe<SortEnumType>;
+  nationalite?: InputMaybe<SortEnumType>;
+  nom?: InputMaybe<SortEnumType>;
+  numeroTelephone?: InputMaybe<SortEnumType>;
+  prenom?: InputMaybe<SortEnumType>;
 };
 
 export type DateTimeOperationFilterInput = {
@@ -160,6 +184,21 @@ export type DossierDtoFilterInput = {
   typeVoyageId?: InputMaybe<IntOperationFilterInput>;
 };
 
+export type DossierDtoSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  client?: InputMaybe<ClientSortInput>;
+  clientId?: InputMaybe<SortEnumType>;
+  dateArrivee?: InputMaybe<SortEnumType>;
+  dossierId?: InputMaybe<SortEnumType>;
+  dureeSejourJours?: InputMaybe<SortEnumType>;
+  hotel?: InputMaybe<HotelSortInput>;
+  lieu?: InputMaybe<SortEnumType>;
+  numeroVol?: InputMaybe<SortEnumType>;
+  productHotelProduitId?: InputMaybe<SortEnumType>;
+  typeVoyage?: InputMaybe<TypeVoyageSortInput>;
+  typeVoyageId?: InputMaybe<SortEnumType>;
+};
+
 export type DossierFilterInput = {
   actif?: InputMaybe<BooleanOperationFilterInput>;
   and?: InputMaybe<Array<DossierFilterInput>>;
@@ -220,6 +259,19 @@ export type HotelDtoFilterInput = {
   ville?: InputMaybe<StringOperationFilterInput>;
 };
 
+export type HotelDtoSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  adresse?: InputMaybe<SortEnumType>;
+  description?: InputMaybe<SortEnumType>;
+  fabricant?: InputMaybe<SortEnumType>;
+  hotelId?: InputMaybe<SortEnumType>;
+  nom?: InputMaybe<SortEnumType>;
+  nombreEtoiles?: InputMaybe<SortEnumType>;
+  pays?: InputMaybe<SortEnumType>;
+  prix?: InputMaybe<SortEnumType>;
+  ville?: InputMaybe<SortEnumType>;
+};
+
 export type HotelFilterInput = {
   actif?: InputMaybe<BooleanOperationFilterInput>;
   adresse?: InputMaybe<StringOperationFilterInput>;
@@ -234,6 +286,19 @@ export type HotelFilterInput = {
   prix?: InputMaybe<DecimalOperationFilterInput>;
   produitId?: InputMaybe<IntOperationFilterInput>;
   ville?: InputMaybe<StringOperationFilterInput>;
+};
+
+export type HotelSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  adresse?: InputMaybe<SortEnumType>;
+  description?: InputMaybe<SortEnumType>;
+  fabricant?: InputMaybe<SortEnumType>;
+  nom?: InputMaybe<SortEnumType>;
+  nombreEtoiles?: InputMaybe<SortEnumType>;
+  pays?: InputMaybe<SortEnumType>;
+  prix?: InputMaybe<SortEnumType>;
+  produitId?: InputMaybe<SortEnumType>;
+  ville?: InputMaybe<SortEnumType>;
 };
 
 export type IntOperationFilterInput = {
@@ -261,30 +326,39 @@ export type ListFilterInputTypeOfDossierFilterInput = {
 export type Query = {
   __typename?: 'Query';
   clients: Array<ClientDto>;
-  dossiers?: Maybe<Array<Maybe<DossierDto>>>;
-  hotels?: Maybe<Array<Maybe<HotelDto>>>;
-  typeVoyages?: Maybe<Array<Maybe<TypeVoyageDto>>>;
+  dossiers: Array<DossierDto>;
+  hotels: Array<HotelDto>;
+  typeVoyages: Array<TypeVoyageDto>;
 };
 
 
 export type QueryClientsArgs = {
+  order?: InputMaybe<Array<ClientDtoSortInput>>;
   where?: InputMaybe<ClientDtoFilterInput>;
 };
 
 
 export type QueryDossiersArgs = {
+  order?: InputMaybe<Array<DossierDtoSortInput>>;
   where?: InputMaybe<DossierDtoFilterInput>;
 };
 
 
 export type QueryHotelsArgs = {
+  order?: InputMaybe<Array<HotelDtoSortInput>>;
   where?: InputMaybe<HotelDtoFilterInput>;
 };
 
 
 export type QueryTypeVoyagesArgs = {
+  order?: InputMaybe<Array<TypeVoyageDtoSortInput>>;
   where?: InputMaybe<TypeVoyageDtoFilterInput>;
 };
+
+export enum SortEnumType {
+  Asc = 'ASC',
+  Desc = 'DESC'
+}
 
 export type StringOperationFilterInput = {
   and?: InputMaybe<Array<StringOperationFilterInput>>;
@@ -324,6 +398,12 @@ export type TypeVoyageDtoFilterInput = {
   typeVoyageId?: InputMaybe<IntOperationFilterInput>;
 };
 
+export type TypeVoyageDtoSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  libelle?: InputMaybe<SortEnumType>;
+  typeVoyageId?: InputMaybe<SortEnumType>;
+};
+
 export type TypeVoyageFilterInput = {
   actif?: InputMaybe<BooleanOperationFilterInput>;
   and?: InputMaybe<Array<TypeVoyageFilterInput>>;
@@ -333,10 +413,24 @@ export type TypeVoyageFilterInput = {
   typeVoyageId?: InputMaybe<IntOperationFilterInput>;
 };
 
+export type TypeVoyageSortInput = {
+  actif?: InputMaybe<SortEnumType>;
+  libelle?: InputMaybe<SortEnumType>;
+  typeVoyageId?: InputMaybe<SortEnumType>;
+};
+
 export type GetDossiersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetDossiersQuery = { __typename?: 'Query', dossiers?: Array<{ __typename?: 'DossierDTO', dossierId: number, dateArrivee: any, dureeSejourJours: number, numeroVol: string, lieu: string, clientId: number, typeVoyageId: number, actif: boolean, client?: { __typename?: 'Client', nom: string, prenom: string, numeroTelephone: string, email: string, nationalite: string, actif: boolean } | null, typeVoyage?: { __typename?: 'TypeVoyage', libelle: string } | null, hotel: { __typename?: 'Hotel', nom: string, nombreEtoiles: number, pays: string, ville: string, adresse: string, description: string, prix: any } } | null> | null };
+export type GetDossiersQuery = { __typename?: 'Query', dossiers: Array<{ __typename?: 'DossierDTO', dossierId: number, dateArrivee: any, dureeSejourJours: number, numeroVol: string, lieu: string, clientId: number, typeVoyageId: number, actif: boolean, client?: { __typename?: 'Client', nom: string, prenom: string, numeroTelephone: string, email: string, nationalite: string, actif: boolean } | null, typeVoyage?: { __typename?: 'TypeVoyage', libelle: string } | null, hotel: { __typename?: 'Hotel', nom: string, nombreEtoiles: number, pays: string, ville: string, adresse: string, description: string, prix: any } }> };
+
+export type SearchDossierByNameQueryVariables = Exact<{
+  nom: Scalars['String'];
+  prenom: Scalars['String'];
+}>;
+
+
+export type SearchDossierByNameQuery = { __typename?: 'Query', dossiers: Array<{ __typename?: 'DossierDTO', dossierId: number, dateArrivee: any, dureeSejourJours: number, numeroVol: string, lieu: string, clientId: number, typeVoyageId: number, actif: boolean, client?: { __typename?: 'Client', nom: string, prenom: string, numeroTelephone: string, email: string, nationalite: string, actif: boolean } | null, typeVoyage?: { __typename?: 'TypeVoyage', libelle: string } | null, hotel: { __typename?: 'Hotel', nom: string, nombreEtoiles: number, pays: string, ville: string, adresse: string, description: string, prix: any } }> };
 
 
 export const GetDossiersDocument = gql`
@@ -400,3 +494,68 @@ export function useGetDossiersLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type GetDossiersQueryHookResult = ReturnType<typeof useGetDossiersQuery>;
 export type GetDossiersLazyQueryHookResult = ReturnType<typeof useGetDossiersLazyQuery>;
 export type GetDossiersQueryResult = Apollo.QueryResult<GetDossiersQuery, GetDossiersQueryVariables>;
+export const SearchDossierByNameDocument = gql`
+    query SearchDossierByName($nom: String!, $prenom: String!) {
+  dossiers(
+    where: {client: {nom: {contains: $nom}, and: {prenom: {contains: $prenom}}}}
+  ) {
+    dossierId
+    dateArrivee
+    dureeSejourJours
+    numeroVol
+    lieu
+    clientId
+    typeVoyageId
+    actif
+    client {
+      nom
+      prenom
+      numeroTelephone
+      email
+      nationalite
+      actif
+    }
+    typeVoyage {
+      libelle
+    }
+    hotel {
+      nom
+      nombreEtoiles
+      pays
+      ville
+      adresse
+      description
+      prix
+    }
+  }
+}
+    `;
+
+/**
+ * __useSearchDossierByNameQuery__
+ *
+ * To run a query within a React component, call `useSearchDossierByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchDossierByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchDossierByNameQuery({
+ *   variables: {
+ *      nom: // value for 'nom'
+ *      prenom: // value for 'prenom'
+ *   },
+ * });
+ */
+export function useSearchDossierByNameQuery(baseOptions: Apollo.QueryHookOptions<SearchDossierByNameQuery, SearchDossierByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SearchDossierByNameQuery, SearchDossierByNameQueryVariables>(SearchDossierByNameDocument, options);
+      }
+export function useSearchDossierByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SearchDossierByNameQuery, SearchDossierByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SearchDossierByNameQuery, SearchDossierByNameQueryVariables>(SearchDossierByNameDocument, options);
+        }
+export type SearchDossierByNameQueryHookResult = ReturnType<typeof useSearchDossierByNameQuery>;
+export type SearchDossierByNameLazyQueryHookResult = ReturnType<typeof useSearchDossierByNameLazyQuery>;
+export type SearchDossierByNameQueryResult = Apollo.QueryResult<SearchDossierByNameQuery, SearchDossierByNameQueryVariables>;

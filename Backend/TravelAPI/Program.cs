@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using TravelAPI.Graphql;
 
 var builder = WebApplication.CreateBuilder(args);
-var AllowSpecificOrigins = "_allowSpecificOrigins";
+var AllowSpecificOrigins = "_allowAllOrigins";
 // Add services to the container.
 builder.Services.AddDbContextFactory<TDbContext>(options => 
 {

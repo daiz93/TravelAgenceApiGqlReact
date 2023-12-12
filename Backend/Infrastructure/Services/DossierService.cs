@@ -66,11 +66,10 @@ namespace Infrastructure.Services
                         DureeSejourJours = dossier.DureeSejourJours,
                         NumeroVol = dossier.NumeroVol,
                         TypeVoyageId = dossier.TypeVoyageId,
-
                         Client = dossier.Client,
                         TypeVoyage = dossier.TypeVoyage,
-                        ProductHotelProduitId = dossier.ProductHotel.ProduitId,
-                        Hotel = dossier.ProductHotel,
+                        ProductHotelProduitId =  dossier.ProductHotel == null?  0 : dossier.ProductHotel.ProduitId,
+                        Hotel = dossier.ProductHotel == null?  null : dossier.ProductHotel,
 
 
                         Actif = dossier.Actif

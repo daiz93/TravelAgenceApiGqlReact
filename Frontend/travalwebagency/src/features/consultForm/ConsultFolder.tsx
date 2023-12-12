@@ -5,6 +5,8 @@ import OmLoading from '../../Components/elements/OmLoading';
 import OmAlert from '../../Components/elements/OmAlert';
 import { Dossier, DossierDto, useGetDossiersQuery } from '../../graphql/generated/schema';
 import DossierList from './DossierList';
+import OmTextFiled from '../../Components/FormUI/OmTextField';
+import OmSubmitButton from '../../Components/FormUI/OmSubmitButton';
 
 export default function ConsultFolder ()
 {
@@ -12,6 +14,9 @@ export default function ConsultFolder ()
     
     const { data:FoldersData, loading, error } = useGetDossiersQuery();
 
+    const DossierFound = true;
+
+    
     if(loading) {
         return <OmLoading />
     }

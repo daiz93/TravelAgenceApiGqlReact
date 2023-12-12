@@ -1,5 +1,6 @@
-query GetDossiers{
-  dossiers {
+
+query SearchDossierByName($nom: String!,$prenom: String!){
+  dossiers  (where: {client:{nom:{contains:$nom} and : {prenom:{contains:$prenom}}}}){
     dossierId
     dateArrivee
     dureeSejourJours
@@ -33,7 +34,3 @@ query GetDossiers{
     }
   }
 }
-
-
-
-
