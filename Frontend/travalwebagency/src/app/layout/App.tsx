@@ -10,7 +10,7 @@ const dossier = new ApolloClient({
   cache: new InMemoryCache({
     typePolicies: {}
   }),
-  uri: 'http://localhost:5048/graphql/'
+  uri: process.env.REACT_APP_TravelAPI_SCHEMA_URL
 });
 
 function App() {

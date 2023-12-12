@@ -72,6 +72,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseRouting();
+app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapFallbackToController("Index", "Website");
@@ -79,7 +80,7 @@ app.UseEndpoints(endpoints =>
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+
 
 app.MapControllers();
 
